@@ -34,7 +34,7 @@ class LineItemsController < ApplicationController
         format.html { redirect_to store_url }
         format.js do 
           @current_item = @line_item
-          render 'modify'
+          render 'create'
         end
         format.json { render :show, status: :created, location: @line_item }
         session[:counter] = 0
@@ -65,7 +65,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     respond_to do |format|
       format.html { redirect_to store_url }
-      format.js { render 'modify.js.erb' }
+      format.js { render 'destroy' }
       format.json { head :no_content }
     end
   end
